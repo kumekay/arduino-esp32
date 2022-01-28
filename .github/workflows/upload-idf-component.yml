@@ -1,9 +1,8 @@
 name: Push components to https://components.espressif.com
 on:
   push:
-    # TODO
-    # branches:
-    #   - main
+     branches:
+       - master
 jobs:
   upload_components:
     runs-on: ubuntu-latest
@@ -18,5 +17,4 @@ jobs:
           name: arduino-esp32
           namespace: espressif
           api_token: ${{ secrets.IDF_COMPONENT_API_TOKEN }}
-          # TODO: use production one
-          service_url: https://api.staging.components.espressif.tools/
+          service_url: ${{ secrets.IDF_COMPONENT_API_URL }}
